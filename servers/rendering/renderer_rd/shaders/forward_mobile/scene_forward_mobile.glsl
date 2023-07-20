@@ -782,6 +782,12 @@ void main() {
 #CODE : FRAGMENT
 	}
 
+#ifdef USE_MULTIVIEW
+	view = -normalize(vertex - eye_offset);
+#else
+	view = -normalize(vertex);
+#endif
+
 #ifdef LIGHT_TRANSMITTANCE_USED
 #ifdef SSS_MODE_SKIN
 	transmittance_color.a = sss_strength;
